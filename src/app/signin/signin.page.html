@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">SignIn</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <form [formGroup]="formSignin" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Email: </ion-label>
+      <ion-input type="email" formControlName="email" placeholder="example@example.com"></ion-input>
+    </ion-item>
+    <div *ngIf="email.invalid && (email.touched || email.dirty)">
+      <div *ngIf="email.errors.required" class="validator-error">
+        *El campo es requerido
+      </div>
+      <div *ngIf="email.errors.pattern" class="validator-error">
+        *Direccion de email invalida
+      </div>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Password: </ion-label>
+      <ion-input type="password" formControlName="password" placeholder="***********"></ion-input>
+    </ion-item>
+    <div *ngIf="password.invalid && (password.touched || password.dirty)">
+      <div *ngIf="password.errors.required" class="validator-error">
+        *El campo es requerido
+      </div>
+    </div>
+    <br/>
+    <ion-button type="submit" expand="block" [disabled]="!formSignin.valid">Send</ion-button>
+  </form>
+
+  <span>No estas registrado? <a (click)="navigate_signup()">Registrarse ahora</a></span>
+
+</ion-content>

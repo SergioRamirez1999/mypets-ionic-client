@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">SignUp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="formSignup" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Name: </ion-label>
+      <ion-input type="text" formControlName="name" placeholder="John"></ion-input>
+    </ion-item>
+    <div *ngIf="name.invalid && (name.touched || name.dirty)">
+      <div *ngIf="name.errors.required" class="validator-error">
+        *El campo es requerido
+      </div>
+      <div *ngIf="name.errors.minlength" class= "validator-error">
+        *Minimo 3 caracteres
+      </div>
+      <div *ngIf="name.errors.maxlength" class="validator-error">
+        *Maximo 30 caracteres
+      </div>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Lastname: </ion-label>
+      <ion-input type="text"  formControlName="lastname" placeholder="Isner"></ion-input>
+    </ion-item>
+    <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+      <div *ngIf="lastname.errors.required" class="validator-error">
+        *El campo es requerido
+      </div>
+      <div *ngIf="lastname.errors.minlength" class= "validator-error">
+        *Minimo 3 caracteres
+      </div>
+      <div *ngIf="lastname.errors.maxlength" class="validator-error">
+        *Maximo 30 caracteres
+      </div>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Email: </ion-label>
+      <ion-input type="email" formControlName="email" placeholder="example@example.com"></ion-input>
+    </ion-item>
+    <div *ngIf="email.invalid && (email.touched || email.dirty)">
+      <div *ngIf="email.errors.required" class="validator-error">
+        *El campo es requerido
+      </div>
+      <div *ngIf="email.errors.pattern" class= "validator-error">
+        *Direccion de email invalida
+      </div>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Password: </ion-label>
+      <ion-input type="password" formControlName="password" placeholder="***********"></ion-input>
+    </ion-item>
+    <div *ngIf="password.invalid && (password.touched || password.dirty)">
+      <div *ngIf="password.errors.required" class="validator-error">
+        *El campo es requerido
+      </div>
+    </div>
+    <ion-button expand="block" type="submit" [disabled]="!formSignup.valid">Registrarse</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Atras"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir mascota</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <form [formGroup]="formAnimalCreate" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nombre:</ion-label>
+          <ion-input type="text" formControlName="name" placeholder="Milo"></ion-input>
+        </ion-item>
+        <div *ngIf="name.invalid && (name.touched || name.dirty)">
+          <div *ngIf="name.errors.required" class="validator-error">
+            *El campo es requerido
+          </div>
+          <div *ngIf="name.errors.minlength" class="validator-error">
+            *Minimo 2 caracteres
+          </div>
+          <div *ngIf="name.errors.maxlength" class="validator-error">
+            *Maximo 30 caracteres
+          </div>
+        </div>
+        <ion-item>
+          <ion-label position="floating">Tipo:</ion-label>
+          <ion-select placeholder="Seleccione" formControlName="type" cancel-text="Cancelar" ok-text="Ok">
+            <ion-select-option value="GATO">Gato</ion-select-option>
+            <ion-select-option value="PERRO">Perro</ion-select-option>
+            <ion-select-option value="TORTUGA">Tortuga</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div *ngIf="type.invalid && (type.touched || type.dirty)">
+          <div *ngIf="type.errors.required" class="validator-error">
+            *El campo es requerido
+          </div>
+        </div>
+        <ion-item>
+          <ion-label position="floating">Nacimiento:</ion-label>
+          <ion-datetime formControlName="birthdate" displayFormat="DD/MM/YYYY" min="1939-01-01" max="2028-12-31" value="2015-05-05"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Peso:</ion-label>
+          <ion-input type="text" formControlName="weight" placeholder="0.0"></ion-input>
+        </ion-item>
+        <div *ngIf="weight.invalid && (weight.touched || weight.dirty)">
+          <div *ngIf="weight.errors.required" class="validator-error">
+            *El campo es requerido
+          </div>
+          <div *ngIf="weight.errors.min || weight.errors.max" class="validator-error">
+            *Peso invalido
+          </div>
+        </div>
+        <ion-item>
+          <ion-label>Imagen:</ion-label>
+          <ion-input type="file" formControlName="image" (change)="fileChangeEvent($event)"></ion-input>
+        </ion-item>
+        <div *ngIf="image.invalid && (image.touched || image.dirty)">
+          <div *ngIf="image.errors.required" class="validator-error">
+            *La imagen es requerida
+          </div>
+        </div>
+      </ion-list>
+      <ion-button expand="block" type="submit">Crear</ion-button>
+    </form>
+  </div>
+
+</ion-content>

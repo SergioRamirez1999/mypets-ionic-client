@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Atras"></ion-back-button>
+    </ion-buttons>
+    <ion-title>verify-email</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h3 text-center>Verificacion de Email</h3>
+  <p>Se ha enviado un codigo de activacion de cuenta. Por favor verifique su correo.</p>
+
+  <form [formGroup]="formVerifyCode" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Codigo:</ion-label>
+      <ion-input type="text" formControlName="code"></ion-input>
+    </ion-item>
+    <div *ngIf="code.invalid && (code.touched || code.dirty)">
+      <div *ngIf="code.errors.required" class="validator-error">
+        *El campo es requerido
+      </div>
+      <div *ngIf="code.errors.minlength || code.errors.maxlength" class="validator-error">
+        *El codigo debe contener 5 caracteres
+      </div>
+    </div>
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!formVerifyCode.valid">Activar</ion-button>
+  </form>
+
+</ion-content>

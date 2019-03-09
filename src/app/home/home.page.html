@@ -1,12 +1,26 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      {{user.familyGroup.token}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <h3 class="empty"></h3>
+  <ion-list *ngFor="let animal of animals" (click)="navigate_animal_profile(animal)">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../assets/img/default_pet_icon.png" alt="default pet icon">
+      </ion-avatar>
+      <p>{{animal.name}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="open_animal_create()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

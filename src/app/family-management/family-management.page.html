@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Crear o Unirse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <div [hidden]="showCreateGroup || showJoinGroup">
+    <ion-button expand="block" (click)="onCreateGroup()">Crear grupo familiar</ion-button>
+    <ion-button expand="block" (click)="onJoinGroup()">Unirse a un grupo</ion-button>
+  </div>
+
+  <div [hidden]="!showCreateGroup">
+    <h3>Crear grupo familiar</h3>
+    <form [formGroup]="formGroupCreate" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nombre: </ion-label>
+          <ion-input type="text" formControlName="create_family_token"></ion-input>
+        </ion-item>
+        <div *ngIf="create_family_token.invalid && (create_family_token.touched || create_family_token.dirty)">
+          <div *ngIf="create_family_token.errors.minlength" class="validator-error">
+            *Al menos 3 caracteres
+          </div>
+          <div *ngIf="create_family_token.errors.maxlength" class="validator-error">
+            *Maximo 20 caracteres
+          </div>
+          <div *ngIf="create_family_token.errors.required" class="validator-error">
+            *El campo es requerido
+          </div>
+        </div>
+      </ion-list>
+      <ion-button expand="block" type="submit" [disabled]="!formGroupCreate.valid">Crear</ion-button>
+    </form>
+
+    <ion-button expand="block" fill="clear" (click)="onJoinGroup()">Unirse a un grupo</ion-button>
+  </div>
+
+  <div [hidden]="!showJoinGroup">
+    <h3>Ingrese el nombre del grupo</h3>
+    <form [formGroup]="formGroupJoin" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nombre:</ion-label>
+          <ion-input type="text" formControlName="join_family_token"></ion-input>
+        </ion-item>
+        <div *ngIf="join_family_token.invalid && (join_family_token.touched || join_family_token.dirty)">
+          <div *ngIf="join_family_token.errors.required" class="validator-error">
+            *El campo es requerido
+          </div>
+          <div *ngIf="join_family_token.errors.minlength" class="validator-error">
+            *Al menos 3 caracteres
+          </div>
+          <div *ngIf="join_family_token.errors.maxlength" class="validator-error">
+            *Maximo 20 caracteres
+          </div>
+        </div>
+      </ion-list>
+      <ion-button expand="block" type="submit" [disabled]="!formGroupJoin.valid">Unirse</ion-button>
+    </form>
+
+    <ion-button expand="block" fill="clear" (click)="onCreateGroup()">Crear un grupo</ion-button>
+  </div>
+
+</ion-content>
