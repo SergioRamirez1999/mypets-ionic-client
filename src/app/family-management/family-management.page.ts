@@ -75,7 +75,7 @@ export class FamilyManagementPage  {
                 let user = JSON.parse((<any>response)._body);
                 if(user){
                   this._userService.saveUser(user);
-                  this.router.navigate(['/home']);
+                  this.router.navigate(['']);
                 }
               }else {
                 this._utils.showToast('Ha ocurrido un error', 'danger');

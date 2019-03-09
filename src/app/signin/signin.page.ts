@@ -69,7 +69,7 @@ export class SigninPage {
                           this._userService.saveToken(token);
                           this._userService.saveUser(this.user);
                           if(this.user.familyGroup){
-                            this.router.navigate(['/home']);
+                            this.router.navigate(['']);
                           }else {
                             this.router.navigate(['/familymanagement']);
                           }
