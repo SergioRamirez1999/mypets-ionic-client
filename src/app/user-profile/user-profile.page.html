@@ -22,14 +22,14 @@
 
       <div class="user-name-container">
         <p class="user_name">{{user_authenticated.name}}</p>
-        <ion-button class="button_edit" fill="clear">
+        <ion-button class="button_edit" fill="clear" (click)="navigate_edit_name()">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-button>
       </div>
 
       <div class="user-name-container">
         <p class="user_name">{{user_authenticated.lastName}}</p>
-        <ion-button class="button_edit" fill="clear">
+        <ion-button class="button_edit" fill="clear" (click)="navigate_edit_lastname()">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-button>
       </div>
@@ -40,7 +40,7 @@
 
       <div class="user-family-container">
         <p class="user_name">{{user_authenticated.familyGroup.token}}</p>
-        <ion-button class="button_edit" fill="clear">
+        <ion-button class="button_edit" fill="clear" (click)="navigate_edit_family()">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-button>
       </div>
@@ -50,8 +50,6 @@
       </div>
 
     </div>
-
-
 
   </div>
 </ion-content>

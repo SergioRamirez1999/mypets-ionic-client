@@ -81,6 +81,33 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'usereditname',
+        children: [
+          {
+            path: '',
+            loadChildren: '../user-edit-name/user-edit-name.module#UserEditNamePageModule'
+          }
+        ]
+      },
+      {
+        path: 'usereditlastname',
+        children: [
+          {
+            path: '',
+            loadChildren: '../user-edit-lastname/user-edit-lastname#UserEditLastnamePageModule'
+          }
+        ]
+      },
+      {
+        path: 'usereditfamily',
+        children: [
+          {
+            path: '',
+            loadChildren: '../user-edit-family/user-edit-family#UserEditFamilyPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
