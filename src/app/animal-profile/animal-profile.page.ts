@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AnimalProfilePage implements OnInit {
 
   animal:Animal;
+  urlGetImage:string = 'http://localhost:8080/apianimals/services/download/image?filename=';
 
   constructor(private activatedRoute:ActivatedRoute) {
 

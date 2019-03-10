@@ -12,17 +12,15 @@ export class HomePage {
 
   user:User;
   animals:Animal[];
-  users:User[];
   token:string;
   isEmpty:false;
+  urlGetImage:string = 'http://localhost:8080/apianimals/services/download/image?filename=';
 
   constructor(private _userService: UserService,
               private _animalService: AnimalService,
               private router: Router){
     this.token = _userService.getToken();
     this.user = _userService.getUser();
-    this.getUsersPagination();
-
   }
 
   ionViewWillEnter(){
@@ -48,20 +46,6 @@ export class HomePage {
           );
   }
 
-  private getUsersPagination(){
-    this._userService.getUsersPagination(this.token, 0)
-        .subscribe(
-          response =>{
-            if(response.ok && response.status == 200){
-              let body:any = JSON.parse((<any>response)._body);
-              this.users = body.content;
-            }
-          },
-          error =>{
-            console.log(error)
-          }
-        );
-  }
 
   private navigate_animal_profile(animal:Animal){
     this.router.navigate(['/tabs/animalprofile/', JSON.stringify(animal)]);

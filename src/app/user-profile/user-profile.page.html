@@ -1,9 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>user-profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
+  <div class="user-profile-container">
+
+    <div class="user-image-container">
+      <img *ngIf="user_authenticated.image; else defaultImage" class="user_image" src="{{url + user_authenticated.image}}" alt="user image">
+      <ng-template #defaultImage>
+        <img class="default_user_image" src="../../assets/img/default_user_icon.png" alt="user icon default">
+      </ng-template>
+    </div>
+
+    <div class="user-description-container">
+
+      <div class="user-name-container">
+        <p class="user_name">{{user_authenticated.name}}</p>
+        <ion-button class="button_edit" fill="clear">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="user-name-container">
+        <p class="user_name">{{user_authenticated.lastName}}</p>
+        <ion-button class="button_edit" fill="clear">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="user-aclaration-text">
+        <span class="aclaration_text">Este no es su nombre de usuario. Este nombre sera visible para su grupo familiar</span>
+      </div>
+
+      <div class="user-family-container">
+        <p class="user_name">{{user_authenticated.familyGroup.token}}</p>
+        <ion-button class="button_edit" fill="clear">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="user-aclaration-text">
+        <span class="aclaration_text">Puede cambiar de grupo familiar si lo desea</span>
+      </div>
+
+    </div>
+
+
+
+  </div>
 </ion-content>

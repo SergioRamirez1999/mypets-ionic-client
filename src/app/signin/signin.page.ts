@@ -65,7 +65,7 @@ export class SigninPage {
                       response => {
                         if(response.ok && response.status == 200){
                           let user:any = JSON.parse((<any>response)._body);
-                          this.user = this._utils.format_user(user);
+                          this.user = user;
                           this._userService.saveToken(token);
                           this._userService.saveUser(this.user);
                           if(this.user.familyGroup){

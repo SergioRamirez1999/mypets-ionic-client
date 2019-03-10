@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../model/index.model';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { ManagementService } from '../management.service';
 import { UserService } from '../user.service';
@@ -16,19 +15,6 @@ export class Utils {
               private loadingCtrl: LoadingController,
               private router: Router){
 
-  }
-
-  public format_user(user_to_format:any){
-    let user = new User(null, null, null, null, null, null);
-    if(user_to_format){
-      user.id = user_to_format.id;
-      user.name = user_to_format.name;
-      user.lastName = user_to_format.lastName;
-      user.email = user_to_format.email;
-      user.familyGroup = user_to_format.familyGroup;
-      user.authorities = user_to_format.authorities;
-    }
-    return user;
   }
 
   public async showToast(message:string, color:string){

@@ -54,6 +54,33 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'userprofile',
+        children: [
+          {
+            path: '',
+            loadChildren: '../user-profile/user-profile.module#UserProfilePageModule'
+          }
+        ]
+      },
+      {
+        path: 'familygroup',
+        children: [
+          {
+            path: '',
+            loadChildren: '../family-group/family-group.module#FamilyGroupPageModule'
+          }
+        ]
+      },
+      {
+        path: 'configuration',
+        children: [
+          {
+            path: '',
+            loadChildren: '../configuration/configuration.module#ConfigurationPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

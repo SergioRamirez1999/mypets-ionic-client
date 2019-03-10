@@ -1,15 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="Atras"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{animal.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-  <img src="../assets/img/default_pet_icon.png" alt="default pet icon">
+  <img *ngIf="animal.image; else defaultImage" class="image_profile" src="{{urlGetImage + animal.image}}" alt="{{animal.image}}">
+  <ng-template #defaultImage>
+    <img class="image_profile" src="../assets/img/default_pet_icon.png" alt="default_pet_icon">
+  </ng-template>
   <span>{{animal.name}}</span>
 
 

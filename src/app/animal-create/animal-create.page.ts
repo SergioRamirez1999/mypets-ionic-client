@@ -77,7 +77,7 @@ export class AnimalCreatePage implements OnInit {
     let weight = this.weight.value;
 
     if(name && type && birthdate && weight){
-      let animal:Animal = new Animal(null,name,birthdate,weight,type,null);
+      let animal:Animal = new Animal(null,name,birthdate,weight,type,null,this.imageToUpload.name);
       const loading = await this.loadingCtrl.create({
         spinner: 'bubbles',
         message: 'Espere por favor...',
@@ -128,10 +128,6 @@ export class AnimalCreatePage implements OnInit {
               }
             );
     }
-  }
-
-  private onSubmitImage(){
-
   }
 
 }

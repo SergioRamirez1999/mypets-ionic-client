@@ -72,4 +72,15 @@ export class ManagementService {
     return this._http.post(url, formData, requestOptions )
                 .pipe(map(res => res));
   }
+
+  public getImage(token:string, image:string){
+    let url = GLOBAL.URL + '/services/download/image' + '?filename=' + image;
+    let headers = new Headers({
+      'Authorization' : this.TOKEN_PREFIX.concat(token)
+    });
+    let requestOptions = new RequestOptions({ headers: headers });
+    return this._http.get(url, requestOptions)
+                .pipe(map(res => res));
+  }
+  
 }

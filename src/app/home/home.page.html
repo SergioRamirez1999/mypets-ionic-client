@@ -1,17 +1,23 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      {{user.familyGroup.token}}
+      Mascotas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="content" padding>
   <h3 class="empty"></h3>
-  <ion-list *ngFor="let animal of animals" (click)="navigate_animal_profile(animal)">
-    <ion-item>
+  <ion-list>
+    <ion-item *ngFor="let animal of animals" (click)="navigate_animal_profile(animal)">
       <ion-avatar slot="start">
-        <img src="../assets/img/default_pet_icon.png" alt="default pet icon">
+        <img *ngIf="animal.image; else defaultImage " src="{{urlGetImage + animal.image}}" alt="default pet icon">
+        <ng-template #defaultImage>
+          <img src="../../assets/img/default_pet_icon.png" alt="default icon">
+        </ng-template>
       </ion-avatar>
       <p>{{animal.name}}</p>
     </ion-item>

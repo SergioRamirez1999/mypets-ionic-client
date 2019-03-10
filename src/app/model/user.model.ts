@@ -6,6 +6,7 @@ export class User {
     public lastName:string,
     public email:string,
     public familyGroup: FamilyGroup,
-    public authorities: []
+    public authorities: [],
+    public image:string
   ){}
 }

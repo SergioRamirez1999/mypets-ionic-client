@@ -7,6 +7,7 @@ export class Animal {
     public birthdate:Date,
     public weight:number,
     public animalType:string,
-    public familyGroup:FamilyGroup
+    public familyGroup:FamilyGroup,
+    public image:string
   ){}
 }

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Integrantes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      <ion-avatar slot="start">
+        <img *ngIf="user.image" src="{{urlGetImage + user.image}}" alt="user icon">
+        <ng-template #defaultImage>
+          <img src="../assets/img/default_user_icon.png" alt="default user icon">
+        </ng-template>
+      </ion-avatar>
+      <p>{{user.name}} {{user.lastName}}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
