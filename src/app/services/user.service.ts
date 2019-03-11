@@ -73,8 +73,8 @@ export class UserService {
             .pipe(map(res => res));
   }
 
-  public updateUser(token:string, user:User, id:number){
-    let url = GLOBAL.URL + GLOBAL.URL_USER + '/' + id;
+  public updateUser(token:string, user:User){
+    let url = GLOBAL.URL + GLOBAL.URL_USER + '/' + user.id;
     let params = JSON.stringify(user);
     let headers = new Headers({
       'Content-type' : 'application/json',

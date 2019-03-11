@@ -20,33 +20,33 @@
 
     <div class="user-description-container">
 
-      <div class="user-name-container">
+      <div class="user-info-container">
         <p class="user_name">{{user_authenticated.name}}</p>
-        <ion-button class="button_edit" fill="clear" (click)="navigate_edit_name()">
+        <ion-button class="button_edit" fill="clear" (click)="open_modal_name()">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-button>
       </div>
 
-      <div class="user-name-container">
-        <p class="user_name">{{user_authenticated.lastName}}</p>
-        <ion-button class="button_edit" fill="clear" (click)="navigate_edit_lastname()">
-          <ion-icon slot="icon-only" name="create"></ion-icon>
-        </ion-button>
-      </div>
-
-      <div class="user-aclaration-text">
-        <span class="aclaration_text">Este no es su nombre de usuario. Este nombre sera visible para su grupo familiar</span>
-      </div>
-
-      <div class="user-family-container">
-        <p class="user_name">{{user_authenticated.familyGroup.token}}</p>
-        <ion-button class="button_edit" fill="clear" (click)="navigate_edit_family()">
+      <div class="user-info-container">
+        <p class="user_lastname">{{user_authenticated.lastName}}</p>
+        <ion-button class="button_edit" fill="clear" (click)="open_modal_lastname()">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-button>
       </div>
 
       <div class="user-aclaration-text">
-        <span class="aclaration_text">Puede cambiar de grupo familiar si lo desea</span>
+        <span class="aclaration_text">Este no es su nombre de usuario. Este nombre sera visible para su grupo familiar.</span>
+      </div>
+
+      <div class="user-info-container">
+        <p class="user_family">{{user_authenticated.familyGroup.token}}</p>
+        <ion-button class="button_edit" fill="clear" (click)="open_modal_family()">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="user-aclaration-text">
+        <span class="aclaration_text">Puede cambiar de grupo familiar si lo desea.</span>
       </div>
 
     </div>

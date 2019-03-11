@@ -94,7 +94,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../user-edit-lastname/user-edit-lastname#UserEditLastnamePageModule'
+            loadChildren: '../user-edit-lastname/user-edit-lastname.module#UserEditLastnamePageModule'
           }
         ]
       },

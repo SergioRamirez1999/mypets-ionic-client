@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>user-edit-lastname</ion-title>
+    <ion-title>Editar</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
+  <form [formGroup]="formLastname">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Apellido:</ion-label>
+        <ion-input autofocus type="text" formControlName="lastname" ng-reflect-form="param_user_lastname"></ion-input>
+      </ion-item>
+      <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+        <div *ngIf="lastname.errors.required" class="validator-error">
+          *El campo es requerido
+        </div>
+        <div *ngIf="lastname.errors.minlength" class="validator-error">
+          *Minimo 3 caracteres
+        </div>
+        <div *ngIf="lastname.errors.maxlength" class="validator-error">
+          *Maximo 30 caracteres
+        </div>
+      </div>
+    </ion-list>
+  </form>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-buttons">
+      <ion-button (click)="onCancel()" class="button-1" type="submit" expand="block" fill="clear">Cancelar</ion-button>
+      <ion-button (click)="onSubmit()" class="button-2" type="submit" expand="block" fill="clear" [disabled]="!formLastname.valid">Ok</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

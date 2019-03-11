@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { User, Animal} from '../model/index.model';
+import { User } from '../model/index.model';
 import { GLOBAL } from './global';
 
 @Injectable({
@@ -82,5 +82,5 @@ export class ManagementService {
     return this._http.get(url, requestOptions)
                 .pipe(map(res => res));
   }
-  
+
 }
