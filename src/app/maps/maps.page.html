@@ -3,10 +3,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>maps</ion-title>
+    <ion-title>Mapa</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 
 </ion-content>

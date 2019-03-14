@@ -3,10 +3,38 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>inventory</ion-title>
+    <ion-title>Inventario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button expand="block" fill="clear">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-toolbar>
+  <ion-segment (ionChange)="segmentChanged($event)" color="tertiary">
+    <ion-segment-button value="comidas">
+      <ion-label>Comidas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="medicinas">
+      <ion-label>Medicina</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
 
+<ion-content>
+
+
+  <div class="lst-container">
+    <ion-list>
+      <ion-item class="item_data" *ngFor="let item of inventory | async">
+        <ion-label class="label_data">{{item.item}}</ion-label>
+        <ion-label class="label_data">{{item.quantity}}</ion-label>
+        <ion-button slot="end" class="btn-delete" expand="block" fill="clear" (click)="onClickDelete(item)">
+          <ion-icon name="close" color="danger"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

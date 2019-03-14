@@ -103,7 +103,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../user-edit-family/user-edit-family#UserEditFamilyPageModule'
+            loadChildren: '../user-edit-family/user-edit-family.module#UserEditFamilyPageModule'
           }
         ]
       },

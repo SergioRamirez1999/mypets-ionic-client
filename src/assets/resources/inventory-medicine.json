@@ -1,0 +1,12 @@
+[
+  {
+    "type":"medicine",
+    "item":"Paracity",
+    "quantity":200
+  },
+  {
+    "type":"medicine",
+    "item":"Pipet",
+    "quantity":300
+  }
+]

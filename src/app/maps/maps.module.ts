@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { MapsPage } from './maps.page';
 
+import { AgmCoreModule } from '@agm/core';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +22,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    AgmCoreModule,
     RouterModule.forChild(routes)
   ],
   declarations: [MapsPage]

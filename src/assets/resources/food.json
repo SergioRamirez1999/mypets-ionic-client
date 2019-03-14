@@ -1,0 +1,32 @@
+[
+  {
+    "food":"snacks",
+    "hour":"06:00",
+    "system":"AM",
+    "fed":true
+  },
+  {
+    "food":"excellent",
+    "hour":"10:00",
+    "system":"AM",
+    "fed":true
+  },
+  {
+    "food":"croquettes",
+    "hour":"14:00",
+    "system":"PM",
+    "fed":false
+  },
+  {
+    "food":"snacks",
+    "hour":"18:00",
+    "system":"PM",
+    "fed":false
+  },
+  {
+    "food":"excellent",
+    "hour":"22:00",
+    "system":"PM",
+    "fed":false
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "medicine":"Paracity",
+    "hour":"06:00",
+    "system":"AM",
+    "fed":"true"
+  },
+  {
+    "medicine":"Paracity",
+    "hour":"22:00",
+    "system":"PM",
+    "fed":"false"
+  }
+]

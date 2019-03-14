@@ -1,0 +1,22 @@
+[
+  {
+    "type":"food",
+    "item":"snacks",
+    "quantity":15.3
+  },
+  {
+    "type":"food",
+    "item":"excellent",
+    "quantity":56.0
+  },
+  {
+    "type":"food",
+    "item":"croquettes",
+    "quantity":8.8
+  },
+  {
+    "type":"food",
+    "item":"fish",
+    "quantity":17.2
+  }
+]

@@ -7,13 +7,41 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
   <img *ngIf="animal.image; else defaultImage" class="image_profile" src="{{urlGetImage + animal.image}}" alt="{{animal.image}}">
   <ng-template #defaultImage>
     <img class="image_profile" src="../assets/img/default_pet_icon.png" alt="default_pet_icon">
   </ng-template>
-  <span>{{animal.name}}</span>
 
+  <div class="data-container">
 
+    <ion-toolbar>
+      <ion-segment (ionChange)="segmentChanged($event)">
+        <ion-segment-button href="#comidas" value="comidas">
+          <ion-label>Comidas</ion-label>
+        </ion-segment-button>
+        <ion-segment-button href="#medicina" value="medicina">
+          <ion-label>Medicina</ion-label>
+        </ion-segment-button>
+        <ion-segment-button href="#historial" value="historial">
+          <ion-label>Historial</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+
+    <ion-toolbar class="toolbar-data">
+      <ion-list class="list-data-container" lines="full">
+        <ion-item class="item_data" *ngFor="let comida of comidas">
+          <ion-label class="label-data">{{comida.alimento}}</ion-label>
+          <ion-label class="label-data">{{comida.hora}}</ion-label>
+          <ion-icon *ngIf="comida.alimentado; else defaultValue" color="primary" name="checkmark-circle" class="label-data">{{comida.alimentado}}</ion-icon>
+          <ng-template #defaultValue>
+            <ion-icon name="close-circle" color="dark" class="label-data">{{comida.alimentado}}</ion-icon>
+          </ng-template>
+        </ion-item>
+      </ion-list>
+    </ion-toolbar>
+
+  </div>
 </ion-content>
